@@ -1,0 +1,47 @@
+<style>
+    .navbar {
+        background-color:whitesmoke;
+    }
+    #nblink {
+        color:#8bc74c;
+    }
+    
+    #nblink:hover{
+        color:whitesmoke;
+        background-color:#8bc74c;
+    }
+    /* navbar header */
+</style>
+<nav class="navbar  navbar-light bg-light navabar-fixed-top">
+               <div class="container">
+                   <div class="navbar-header">
+                       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                           <span class="icon-bar"></span>
+                           <span class="icon-bar"></span>
+                           <span class="icon-bar"></span>
+                       </button>
+                       <a href="/" id="logo" class="navbar-brand"><img src="img/LOGO.png" width="110rem";></a>
+                       <div class="navbar-brand ">|</div>
+                       <a href="/posts?category=all" <% session.search = null %> class="navbar-brand" id="nblink" name="AllPosts">All Posts</a>
+                    
+                   </div>
+                   
+                   <div class="collapse navbar-collapse" id="myNavbar">
+                       <ul class="nav navbar-nav navbar-right">
+                          
+                            <% if (session.loggedin == true) { %>
+                            <div href="" class="navbar-brand" id="nblink"name="accname"><%= session.accname %></div>
+                            <div class="navbar-brand " id="nblink">|</div>
+                            <% if (session.username == "admin") { %>
+                           <li><a href="/dashboard" id="nblink" name="dashboard"><span class="glyphicon glyphicon-th"></span> แดชบอร์ด</a></li>
+                            <% } %>
+                           <li><a href="/logout" id="nblink"><span class="glyphicon glyphicon-log-out"></span> ออกจากระบบ</a></li>
+                           <% }else { %>
+                            <%#<li><a href="/register" id="nblink"><span class="glyphicon glyphicon-user"></span> สมัครสมาชิก</a></li>%>
+                           <li><a href="/login" id="nblink" name="loggedin"><span class="glyphicon glyphicon-log-in"></span> เข้าสู่ระบบ</a></li>
+                           <%  } %>
+                           
+                       </ul>
+                   </div>
+               </div>
+</nav>

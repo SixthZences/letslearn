@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <link rel="shortcut icon" href="img/LOGO.png" />
+        <title>Login</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" type="text/css">
+        <script type="text/javascript" src="bootstrap/js/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="css/style.css" type="text/css">  
+        <link rel="stylesheet" href="css/style2.css" type="text/css">  
+    </head>
+
+
+   <body background>
+        <div>
+            <%- include ('header') %>
+            <br><br><br>
+    
+    
+            <body>
+                    
+                    
+                <div id="content">  
+                    
+                    <form action="/register/auth" method="post">
+                    
+                        <p id="headerform">สมัครสมาชิก</p>
+                        <p class="lines"></p>
+                        
+                        <div class="input-group">
+                            <label id="space" or="username">ชื่อผู้ใช้ :</label>
+                            <input type="text" name="username" placeholder="ชื่อผู้ใช้ ( ใช้สำหรับล็อกอิน ขั้นต่ำ 8 ตัวอักษร )">
+                        </div>
+                        <div class="input-group">
+                            <label id="space" or="username">ชื่อบัญชี :</label>
+                            <input type="text" name="accname" placeholder="ชื่อผู้โพสต์ ( ใช้สำหรับแสดงผล 8-16 ตัวอักษร )">
+                        </div>
+                        <div class="input-group">
+                            <label id="space" for="password">รหัสผ่าน :</label>
+                            <input type="password" name="password" placeholder="รหัสผ่าน ขั้นต่ำ 8 ตัวอักษร" >
+                        </div>
+                        <div class="input-group">
+                            <label id="space" for="checkpassword">ยืนยันรหัสผ่าน :</label>
+                            <input type="password" name="checkpassword" placeholder="ตรวจสอบรหัสผ่าน ">
+                        </div>
+                        <div class="input-group">
+                            <button type="submit" name="register" class="btn btn-success">Register</button>
+                        </div>
+                        <p id="space">Already a member? <a id="signin" href="/login">Sign in</a></p>
+                    </form>
+                </div>
+                </body>
+                </html>

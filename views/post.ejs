@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="shortcut icon" href="img/LOGO.png" />
+        <title>Let's Learn</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" type="text/css">
+        <script type="text/javascript" src="bootstrap/js/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="css/style.css" type="text/css">
+        <link href="https://fonts.googleapis.com/icon?family=Prompt"
+      rel="stylesheet">
+
+<style>
+post {
+  background-color: #ffffff;
+  background-repeat: no-repeat;
+  background-size: cover;
+  float: left;
+  width: 100%;
+  height: 380px;
+  padding: 5px;
+  border-radius: .5rem;
+}
+
+section {
+  background-color: #8bc74c;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  float: left;
+  width: 20%;
+  height: 500px;
+  padding: 5px;
+}
+
+content {
+  float: left;
+  padding: 5px;
+  width: 80%;
+  height: 500px;
+  background-color: #b5da8e;
+}
+
+@media (max-width: 600px) {
+  section, content {
+    width: 100%;
+    height: auto;
+  }
+}
+</style>
+    </head>
+    <body style="background-image: url(img/BG_post.jpg);background-size:cover;font-family: Prompt; background-position-x:35%;">
+        <div>
+            <%- include ('header') %><br>
+        <section><br>
+            <div class="container"><center>
+                <div class="row">
+                <div class="col-md-3 col-sm-6">
+                        <div class="thumbnail">
+                            <a href="#">
+                                <img src="img/<%= data.image%>" alt="Luffy">
+                            </a>
+                            <center>
+                                <div class="caption">
+                                    <h3><%= data.title %></h3>
+                                    <p><%= data.category%></p>
+                                </div>
+                            </center>
+                        </div>
+                    </div>
+                </div></center>
+        </section>
+                <content>
+                    <div class="thumbnail">
+                        <%# Post Test %>
+                        <h4><%= data.title %></h4>
+                    </div>
+                    <post>
+                        <p><%= data.description %></p>
+                    </post>
+                </content>
+                </div>
+            </div>
+            <br><br><br><br><br><br><br><br>
+           <footer class="footer">
+               <div class="container">
+                <center> 
+                    <A HREF="Mailto:wittawin.cop@g.swu.ac.th"><p style="color: #8bc74c;">Copyright &#169; 2021 by Group : Let's Learn's Developer</p></A>
+                </center>
+               </div>
+           </footer>
+        </div>
+    </body>
+</html>

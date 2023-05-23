@@ -1,0 +1,100 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+    <link rel="shortcut icon" href="img/LOGO.png" />
+        <title>Let's Learn</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- latest compiled and minified CSS -->
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" type="text/css">
+        <!-- jquery library -->
+        <script type="text/javascript" src="bootstrap/js/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+        <!-- External CSS -->
+        <link rel="stylesheet" href="css/style.css" type="text/css">
+        <link href="https://fonts.googleapis.com/icon?family=Prompt"
+      rel="stylesheet">
+    </head>
+    <body style="background-image: url(img/BG_posts.jpg);background-repeat: no-repeat;background-attachment: fixed; background-size: 100% 100%; font-family: Prompt">
+        
+       <% 
+        row=0;
+        var input, filter, ul, li, a, i,row;
+        const s_list = [];
+        if (search!=null){
+        input = search;
+        filter = input.toUpperCase();
+        for (i = 0; i < data.length; i++) 
+            {
+                a = data[i].title;
+                if (a.toUpperCase().indexOf(filter) > -1) 
+                {
+                    s_list.push(a);
+                }
+    
+            }
+        }            
+
+        
+
+        %>
+        <div>
+            <%- include ('header') %>
+            <br>
+            <div class="container">
+                <div class="jumbotron" style="background-color: #dfffba; color:#516d32; opacity: 95%;">
+                    <% var words = "";
+                        switch (cat){
+                        case 'general':words="เกี่ยวกับความรู้ทั่วไป";break;
+                        case 'academic':words="เกี่ยวกับวิชาการ";break;
+                        case 'forkids':words="สำหรับเด็ก";break;
+                        default:words="ทั้งหมด";break;
+                    }%>
+                    <h1>โพสต์<%= words %></h1>
+                    <p>โพสต์ที่มีผู้คนโพสต์<%= words %></p>
+                    <% if (session.loggedin) { %>
+                    <form  method="post" action="/posts/search?cat=<%= cat %>">
+                        <input type="text" name="search" placeholder="Search..">
+                        <button type="submit" class="btn btn-success">Search</button>
+                    </form>
+                    <% } %>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <% for (let j = 0;j<data.length;j++) { %>
+                    <% if ((s_list.indexOf(data[j].title) > -1) || search == null) { %>
+                        <% if (cat == "all" || cat==data[j].category) { %>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="thumbnail">
+                            <a href="/post?id=<%= data[j].id %>"  >
+                                <img src="/img/<%= data[j].image %>" alt="GTA V">
+                            </a>
+                            <center>
+                                <div class="caption">
+                                    <h3 name="post_name"><%= data[j].title %></h3><br>
+     
+                                </div>
+                            </center>
+                        </div>
+                    </div>
+                    <% 
+                    row+=1;
+                    }}
+                    if (row==4){ %>
+                    </div>
+                    <div class="row">
+                    <% row=0; } %>
+                    <% } %>
+            </div>
+            <br><br><br><br><br><br><br><br>
+           <footer class="footer">
+               <div class="container">
+                <center> 
+                <A HREF="Mailto:wittawin.cop@g.swu.ac.th"><p style="color: #30003b;">Copyright &#169; 2021 by Group: งานเป็นกองได้แต่มองแล้วยิ้ม</p></A>
+               </center>
+               </div>
+           </footer>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<style>
+    
+  p{
+      color:#516d32;
+  }
+  #tnpic {
+  max-width: 100%;
+  min-height: 120px;
+  max-height: 200px;
+}
+
+</style>
+<html>
+  <head>
+      <link rel="shortcut icon" href="img/LOGO.png" />
+      <title>Let's Learn</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" type="text/css">
+      <script type="text/javascript" src="bootstrap/js/jquery-3.2.1.min.js"></script>
+      <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+      <link rel="stylesheet" href="css/style.css" type="text/css">
+      <link href="https://fonts.googleapis.com/icon?family=Prompt"rel="stylesheet">
+      <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4 /css/all.min.css">
+      <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body style="background-image: url(img/BGG02.jpg);background-repeat: no-repeat;background-attachment: fixed; background-size: 100% 100%; font-family: Prompt">
+      <div>
+        <%- include ('header') %>
+        <%# Update %>
+         <div  style="background-size:cover;">
+             <div class="container">
+                 <center>
+                 <div id="bannerContent">          
+                     <h2 style="color:#8bc74c;">ยินดีต้อนรับเข้าสู่ Let's Learn</h2>
+                     <p><img src="img/IG.gif" width="200rem"; ></p>
+                     <h1><img src="img/LOGO.png" width="300rem"; ></h1>
+                     <a href="/posts?category=all" class="btn btn-success">Let's Learn</a>
+                 </div>
+                 </center>
+             </div>
+         </div>
+
+         <section class="home" id="home">
+
+</section>
+         <div class="container">
+             <div class="row">
+                 <div class="col-xs-4">
+                     <div  class="thumbnail bannerContent" >
+                     <div class="item">
+                     <a href="/posts?category=general">
+                              <img src="img/knowl.gif" name="general"id="tnpic" alt="general">
+                         </a>
+                          </div>
+                       
+                         <center>
+                              <div class="caption">
+                                      <p id="autoResize">ความรู้ทั่วไป</p>
+                                      <p>รวมโพสต์ความรู้ทั่วไป</p>
+                              </div>
+                         </center>
+                     </div>
+                 </div>
+                 <div class="col-xs-4">
+                     <div class="thumbnail">
+                     <div class="item">
+                     <a href="/posts?category=academic" >
+                              <img src="img/open-book.gif" name="academic"id="tnpic" alt="academic">
+                         </a>
+                          </div>
+                         <center>
+                              <div class="caption">
+                                  <p id="autoResize">วิชาการ</p>
+                                  <p>รวมโพสต์วิชาการ</p>
+                              </div>
+                         </center>
+                     </div>
+                 </div>
+                 <div class="col-xs-4">
+                     <div class="thumbnail">
+                     <div class="item">
+                     <a href="/posts?category=forkids">
+                              <img src="img/forkids.gif" id="tnpic" alt="Hots">
+                         </a>
+                          </div>
+                         <center>
+                             <div class="caption">
+                                 <p id="autoResize">สำหรับเด็ก</p>
+                                 <p>รวมโพสต์สำหรับเด็ก</p>
+                             </div>
+                         </center>
+                     </div>
+                 </div>
+             </div>
+         </div>
+          <br><br> <br>
+         <footer class="footer"> 
+             <div class="container">
+             <center> 
+             </center>
+             </div>
+         </footer>
+      </div>
+      
+  </body>
+  <footer><center>
+  <A HREF="Mailto:wittawin.cop@g.swu.ac.th"><p style="color: #8bc74c;">Copyright &#169; 2021 by Group : Let's Learn's Developer</p></A>
+  </footer>
+</html>

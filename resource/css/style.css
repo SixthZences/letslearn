@@ -1,0 +1,75 @@
+.caption,h4,h3,h2,h1,p{
+    color:#516d32;
+}
+.navbar{
+    margin-bottom: 0px;
+    width: 100%;
+}
+
+#bannerImage{
+    padding-top:10px;
+    padding-bottom:10px;
+    margin-bottom: 10px;
+    text-align:center; 
+    background-image: url("../img/BGM.jpg");
+    background-size:cover;
+}
+
+#bannerContent{
+    position:relative;
+    padding-top:3%;
+    padding-bottom:3%;
+    margin-top:5%;
+    margin-bottom:5%;
+    background-color:#ffffff;
+    opacity: 90%;
+    max-width:660px;
+    border: 10;
+}
+
+footer{
+    background-color:#ffffff;
+    color:#30003b;
+    font-size:14px;
+    font-weight:bold;
+    padding:10px;    
+    bottom:0;
+}
+
+html { 
+    min-height:100%;
+    position:relative;    
+} 
+
+.footer { 
+    position: absolute; 
+    bottom:0; 
+    right:0;
+    left:0;
+}
+
+@media (min-width:320px){
+    #autoResize{
+        font-size:12px;
+    }
+}
+@media (min-width:481px){
+    #autoResize{
+        font-size:16px;
+    }
+}
+@media (min-width:641px){
+    #autoResize{
+        font-size:18px;
+    }
+}
+@media (min-width:961px){
+    #autoResize{
+        font-size:20px;
+    }
+}
+@media (min-width:1000px){
+    #autoResize{
+        font-size:26px;
+    }
+}

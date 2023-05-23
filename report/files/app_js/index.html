@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - app.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet">
+  <link href="../../assets/css/plato.css" rel="stylesheet">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="http://github.com/es-analysis/plato">Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>app.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">70.03</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">234</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">32.83</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">1.95</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">var mysql = require(&#039;mysql&#039;);
+var express = require(&#039;express&#039;);
+var router = express.Router();
+var session = require(&#039;express-session&#039;);
+var bodyParser = require(&#039;body-parser&#039;);
+var path = require(&#039;path&#039;);
+var alert = require(&#039;alert&#039;);
+const res = require(&#039;express/lib/response&#039;);
+
+var createError = require(&#039;http-errors&#039;);
+var cookieParser = require(&#039;cookie-parser&#039;);
+var logger = require(&#039;morgan&#039;);
+
+// connect to mysql db
+var connection = mysql.createConnection({
+  host: &#039;localhost&#039;,
+  user: &#039;root&#039;,
+  password: &#039;&#039;,
+  database: &#039;accounts&#039;
+});
+
+var indexRouter = require(&#039;./routes/index&#039;);
+var loginRouter = require(&#039;./routes/login&#039;);
+var logoutRouter = require(&#039;./routes/logout&#039;);
+//var usersRouter = require(&#039;./routes/users&#039;);
+var postsRouter = require(&#039;./routes/posts&#039;);
+var postRouter = require(&#039;./routes/post&#039;);
+var registerRouter = require(&#039;./routes/register&#039;);
+var dashboardRouter = require(&#039;./routes/dashboard&#039;);
+const http = require(&#039;http&#039;);
+const port = 3000;
+const server = http.createServer();
+var app = express();
+
+app.listen(3000);
+// view engine setup
+app.set(&#039;views&#039;, path.join(__dirname, &#039;views&#039;));
+app.set(&#039;view engine&#039;, &#039;ejs&#039;);
+
+app.use(express.json());
+app.use(express.static(__dirname + &quot;/resource&quot;))
+app.use(logger(&#039;dev&#039;));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, &#039;public&#039;)));
+
+app.use(&#039;/&#039;, indexRouter);
+//app.use(&#039;/users&#039;, usersRouter);
+app.use(&#039;/login&#039;, loginRouter);
+app.use(&#039;/logout&#039;, logoutRouter);
+app.use(&#039;/posts&#039;, postsRouter);
+app.use(&#039;/post&#039;, postRouter);
+app.use(&#039;/register&#039;, registerRouter);
+app.use(&#039;/dashboard&#039;, dashboardRouter);
+
+
+
+
+app.use(session({
+  secret: &#039;secret&#039;,
+  resave: true,
+  cookie: { maxAge: 86400000 },
+  saveUninitialized: true
+}));
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+app.post(&#039;/posts&#039;, function (req, res) {
+  const id = -1;
+  req.session.id = id;
+  console.log(&quot;72:app.js U r here&quot;);
+  console.log(id);
+  app.use(function (req, res, next) {
+    res.locals.id = req.session.id;
+    next();
+  });
+});
+
+app.post(&#039;/posts/search&#039;, function (req, res) {
+  const search = req.body.search;
+  const cat = req.query.cat;
+  var adr = &#039;/posts?category=&#039;;
+
+  req.session.search = search;
+  if (search) {
+    app.use(function (req, res, next) {
+      res.locals.search = req.session.search;
+
+
+      next();
+    });
+    res.redirect(adr.concat(cat));
+  }
+  else {
+    res.redirect(adr.concat(cat));
+  }
+
+});
+
+app.post(&#039;/register/auth&#039;, function (req, res) {
+  var un = false;
+  var an = false;
+  var pw = false;
+  var username = req.body.username;
+  var accname = req.body.accname;
+  var password = req.body.password;
+  var checkpassword = req.body.checkpassword;
+  if ((username &amp;&amp; accname &amp;&amp; password &amp;&amp; password) &amp;&amp; (password == checkpassword)) {
+
+    //username validator
+    if (username.length &gt;= 8) {
+      connection.query(&#039;SELECT * FROM accounts WHERE username = ? &#039;, [username], function (error, results, fields, next) {
+              if(results.length &gt; 0){
+              res.redirect(&#039;/register?error=unalr&#039;);
+              }
+            });
+            un=true;
+    }
+    else{
+      res.redirect(&#039;/register?error=unlen&#039;);
+    }
+
+    //accname validator
+    if(accname.length &gt;= 8 &amp;&amp; accname.length &lt;= 16){
+      connection.query(&#039;SELECT * FROM accounts WHERE accname = ? &#039;, [accname], function (error, results, fields, next) {
+        console.log(results);
+        res.redirect(&#039;/register&#039;);
+      });
+    }
+
+  }});
+  
+
+
+    // }
+    //  if (username.length &gt;= 8) {
+    //   console.log(&#039;113&#039;);
+    //    connection.query(&#039;SELECT * FROM accounts WHERE username = ? &#039;, [username], function (error, results, fields) {
+    //      if (results.length &gt; 0) {
+    //        res.redirect(&#039;/register?unalr&#039;);
+    //      }
+    //    });
+    //    un=true;
+    //    console.log(&#039;133&#039;);
+    //    console.log(un);
+    //  }
+    //  else {
+    //    res.redirect(&#039;/register?error=unamelen&#039;);
+    //  }
+    //  if (accname.length &gt;= 8 &amp;&amp; accname.length &lt;= 16) {
+    //    connection.query(&#039;SELECT * FROM accounts WHERE accname = ? &#039;, [accname], function (error, results, fields) {
+    //      if (results.length &gt; 0) {
+    //        res.redirect(&#039;/register?error=accnamealr&#039;);
+    //      }
+    //     });
+    //     an = true;
+    //     console.log(an);
+    //  }
+    //  else {
+    //    res.redirect(&#039;/register?error=accnamelen&#039;);
+    //  }
+    //  if (password.length &gt;= 8) {
+    //    pw = true;
+    //  }
+    //  else {
+    //    res.redirect(&#039;/register?error=pwlen&#039;);
+    //  }
+    //  console.log(&quot;Almost there&quot;);
+    //  console.log(un);
+    //  console.log(an);
+    //  console.log(pw);
+    //  if (un &amp;&amp; an &amp;&amp; pw) {
+    //    connection.query(&#039;INSERT INTO accounts (username, password, accname) VALUES (?, ?, ?)&#039;, [username, password, accname], function(error, results, fields){
+    //       alert(&#039;Your account has been created successfully !&#039;);
+    //        res.redirect(&#039;/login&#039;);
+    //      });
+    //  }
+    //  else {
+    //    alert(&#039;un or an or pw errors&#039;);
+    //    res.redirect(&#039;/register&#039;);
+    //  }
+
+app.post(&#039;/login/auth&#039;, function (request, response) {
+  var username = request.body.username;
+  var password = request.body.password;
+  if (username &amp;&amp; password) {
+    connection.query(&#039;SELECT * FROM accounts WHERE username = ? AND password = ?&#039;, [username, password], function (error, results, fields) {
+      if (results.length &gt; 0) {
+        request.session.loggedin = true;
+        request.session.username = username;
+        request.session.accname = results[0].accname;
+
+
+
+        app.use(function (req, res, next) {
+          response.locals.username = request.session.username;
+          response.locals.accname = request.session.accname;
+
+          next();
+        });
+        response.redirect(&#039;/&#039;);
+      }
+      else {
+        alert(&#039;Incorrect Username and/or Password&#039;)
+        response.redirect(&#039;/login&#039;);
+      }
+      response.end();
+    });
+  }
+  else {
+    alert(&#039;Please enter Username and Password&#039;);
+    response.redirect(&#039;/login&#039;);
+  }
+});
+
+// catch 404 and forward to error handler
+app.use(function (req, res, next) {
+  next(createError(404));
+});
+
+// error handler
+app.use(function (err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get(&#039;env&#039;) === &#039;development&#039; ? err : {};
+
+  // render the error page
+  res.status(err.status || 500);
+  res.render(&#039;error&#039;);
+});
+
+module.exports = app;</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ cyclomatic }} <br>
+    Length : {{ halstead.length }} <br>
+    Difficulty : {{ halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

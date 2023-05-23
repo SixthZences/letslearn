@@ -1,0 +1,163 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+
+#content{
+  position:initial;
+}
+
+body {
+  font-family: "Cairo", sans-serif;
+  font-size: 120%;
+  background-image: url("https://i.natgeofe.com/n/18e7decd-4be0-4669-8a6a-ffb15cc554a1/01-jungle-book-baloo-mowgli_2x1.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+
+.main-color {
+  color: #c2eb96;
+}
+
+/*ของหน้า login */
+form, .content {
+  width: 27%;
+  margin: 2% auto 0 37%;
+  padding: 2.5rem;
+  border: 1px solid #ffffff;
+  background: #557731;
+  color: #000000;
+  border-radius: 2.2rem;
+  opacity: 0.9;
+}
+
+/*ของหน้า regis*/ 
+section {
+ 
+  padding: 2.4rem;
+  border: 1px solid #fff;
+  background: #557731;
+  color: #000000;
+  border-radius: 2.2rem;
+  opacity: 0.9;
+  margin:0 auto;
+  width:800px;
+}
+
+#headerform{
+  font-size: 2.7rem;
+  color: #fff;
+  text-align: center;
+}
+
+
+
+.input-group {
+  margin: 10px 0px 10px 0px;
+}
+
+.input-group label {
+  display: block;
+  text-align: left;
+  margin: 3px;
+}
+
+.input-group input {
+  height: 30px;
+  width: 40rem;
+  padding: 5px 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+
+p.lines {
+  width: 96%;
+  border: 1px solid #c2eb96;
+  margin-top: 0.2rem;
+  margin-bottom: 1rem;
+}
+
+#signin{
+  color:#c2eb96;
+}
+
+#space{
+  padding-top: 0.1rem;
+  color: #fff;
+}
+.error {
+  width: 96%; 
+  margin: 0 ; 
+  padding: 5px; 
+  margin-top: 10px;
+  border: 1px solid #a94442; 
+  color: #c03c3a; 
+  background: #f2dede; 
+  border-radius: 0.4rem;
+  text-align: center;
+}
+.btn {
+  width: 96%;
+  padding: 0.9rem;
+  margin-top: 1.4rem;
+  margin-bottom: 0.2rem;
+  font-size: 1.2rem;
+  color: #fff;
+  background: #7fb445;
+  border: none;
+  border-radius: 5px;
+}
+
+@media only screen and (max-width: 850px) {
+
+  form, .content {
+    width: 50%;
+    margin: 12% auto 0 20%;
+    padding: 25px;
+    border: 1px solid #B0C4DE;
+    background: #0c111b;
+    color: #c2eb96;;
+    border-radius: 1.5rem;
+    opacity: 0.9;
+  }
+
+  section {
+    width:100%;
+    margin: 5% auto 0 20%;
+    padding: 25px;
+    border: 1px solid #fff;
+    background: #0c111b;
+    color: #c2eb96;
+    border-radius: 2.2rem;
+    opacity: 0.9;
+  }
+
+
+  .btn {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 0.7rem;
+    font-size: 1.2rem;
+    color: white;
+    background: #1f80e0;
+    border: none;
+    border-radius: 6px;
+  }
+
+  .error {
+    width: 96%; 
+    margin: 0 ; 
+    padding: 5px; 
+    margin-top: 10px;
+    border: 1px solid #a94442; 
+    color: #c03c3a; 
+    background: #f2dede; 
+    border-radius: 7px; 
+    text-align: center;
+  }
+
+}
+
