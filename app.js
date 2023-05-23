@@ -13,9 +13,9 @@ var cookieParser = require('cookie-parser');
 
 // connect to mysql db
 var connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '',
+  host: 'mysqldb',
+  user: 'patipansixth',
+  password: 'sixth',
   database: 'accounts'
 });
 
@@ -149,3 +149,4 @@ app.use(function (err, req, res, next) {
 });
 
 module.exports = app;
+

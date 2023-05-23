@@ -1,6 +1,6 @@
 {
   "name": "letslearn",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "test": "jest --watchAll=false --coverage --testResultsProcessor ./node_modules/jest-junit-reporter",
@@ -33,7 +33,7 @@
     "express": "^4.17.3",
     "jest": "^27.5.1",
     "jest-junit-reporter": "^1.1.0",
-    "nodemon": "^2.0.15",
+    "nodemon": "^2.0.22",
     "request": "^2.88.2"
   },
   "main": "app.js",
