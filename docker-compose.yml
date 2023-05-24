@@ -48,6 +48,18 @@ services:
       - mysqldb
     networks:
       - internalnetworks
+    #phpmyadmin
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    ports:
+      - 8080:80
+    environment:
+      - PMA_HOST=mysqldb
+      - MYSQL_ROOT_PASSWORD=sixth
+    depends_on:
+      - mysqldb
+    networks:
+      - internalnetworks
 networks:
   internalnetworks:
     driver: bridge
