@@ -8,7 +8,6 @@ services:
     restart: unless-stopped
     volumes: 
       - ./sql/accounts.sql:/docker-entrypoint-initdb.d/0_init.sql
-      - $HOME/database:/var/lib/mysql
     ports:
       - 3306:3306
     expose:
@@ -18,8 +17,6 @@ services:
       - MYSQL_USER=patipansixth
       - MYSQL_PASSWORD=sixth
       - MYSQL_ROOT_PASSWORD=sixth
-      - SERVICE_TAGS=prod
-      - SERVICE_NAME=mysqldb
     networks:
       - internalnetworks
   #Node.js Web app
@@ -28,8 +25,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    volumes:
-      - $HOME/nodeapp:/code
     ports:
       - 3000:3000
     expose:
@@ -40,19 +35,17 @@ services:
       - DB_USER=patipansixth
       - DB_PASSWORD=sixth
       - DB_NAME=accounts
-      - DB_CONNECTION_LIMIT=1100
-      - SERVICE_TAGS=prod
-      - SERVICE_NAME=nodeapp
-      - SERVICE_PORT=3000
     depends_on:
       - mysqldb
     networks:
       - internalnetworks
-    #phpmyadmin
+  #phpmyadmin
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
     ports:
-      - 8080:80
+      - 8000:80
+    expose:
+      - 8000
     environment:
       - PMA_HOST=mysqldb
       - MYSQL_ROOT_PASSWORD=sixth

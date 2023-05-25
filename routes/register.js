@@ -7,9 +7,9 @@ var path = require('path');
 const res = require('express/lib/response');
 
 var connection = mysql.createConnection({
-  host:'localhost',
-  user:'root',
-  password:'',
+  host:'mysqldb',
+  user:'patipansixth',
+  password:'sixth',
   database:'accounts'
 });
 

@@ -26,6 +26,7 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `accounts`
 --
+DROP TABLE IF EXISTS `accounts`;
 
 CREATE TABLE `accounts` (
   `id` int(11) NOT NULL,

@@ -9,9 +9,9 @@ const res = require('express/lib/response');
 
 // connect to mysql db
 var connection = mysql.createConnection({
-  host:'localhost',
-  user:'root',
-  password:'',
+  host:'mysqldb',
+  user:'patipansixth',
+  password:'sixth',
   database:'accounts'
 });
 -
