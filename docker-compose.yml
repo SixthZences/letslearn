@@ -1,5 +1,7 @@
 version: "3"
 services:
+
+
   #MySQL Database 
   mysqldb:
     image: mysql:8.0
@@ -19,6 +21,8 @@ services:
       - MYSQL_ROOT_PASSWORD=sixth
     networks:
       - internalnetworks
+
+
   #Node.js Web app
   node:
     container_name: nodeapp
@@ -39,6 +43,9 @@ services:
       - mysqldb
     networks:
       - internalnetworks
+
+
+
   #phpmyadmin
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
@@ -53,6 +60,9 @@ services:
       - mysqldb
     networks:
       - internalnetworks
+
+
+      
 networks:
   internalnetworks:
     driver: bridge
