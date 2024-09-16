@@ -13,9 +13,9 @@ var cookieParser = require('cookie-parser');
 
 // connect to mysql db
 var connection = mysql.createConnection({
-  host: 'mysqldb',
-  user: 'patipansixth',
-  password: 'sixth',
+  host: 'localhost',
+  user: 'root',
+  password: '',
   database: 'accounts'
 });
 
@@ -104,7 +104,7 @@ app.post('/login/auth', function (request, response) {
   var password = request.body.password;
   if (username && password) {
     connection.query('SELECT * FROM accounts WHERE username = ? AND password = ?', [username, password], function (error, results, fields) {
-      if (results.length > 0) {
+      if (results != undefined) {
         request.session.loggedin = true;
         request.session.username = username;
         request.session.accname = results[0].accname;

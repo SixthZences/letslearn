@@ -40,7 +40,7 @@ CREATE TABLE `accounts` (
 --
 
 INSERT INTO `accounts` (`id`, `username`, `password`, `accname`) VALUES
-(1, 'admin', '12345', 'Admin'),
+(1, 'admin', '123456', 'Admin'),
 (2, 'member', '123456', 'Member');
 
 --
